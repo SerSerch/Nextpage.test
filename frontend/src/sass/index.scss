@@ -6,7 +6,7 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	background-color: $background-color;
+	background-color: $p-background-color;
 	overflow: hidden;
 }
 
@@ -18,7 +18,7 @@ body {
 	min-height: 320px;
 	margin: 0 auto;
 	font-family: $default-font;
-	color: #474747;
+	color: $p-text-color;
 }
 
 .wrap-container {

@@ -1,14 +1,16 @@
+@import "../vars";
 .header {
+  background-color: $s-background-color;
+  color: $s-text-color;
 }
 
-.box {
-
-}
 .caption {
+  position: relative;
   font-size: 0;
   display: block;
   transform: rotate(-30deg) translate(1.5%, -1%);
   text-transform: uppercase;
+  transition: color 0s ease-in-out 0.4s;
   &-box {
     margin-top: 105px;
     border: 1px solid #f00;
@@ -31,21 +33,64 @@
       transform: skewX(-30deg);
     }
     &._first {
-      height: 0;
+      position: absolute;
+      top: -8.7vw;
+      left: 0;
       overflow: visible;
+      transform: skewX(30deg);
+    }
+    &._left::before,
+    &._right::before,
+    &._left::after,
+    &._right::after,
+    &._first::after {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 8.7vw;
+      color: transparent;
+      overflow: hidden;
+      transition: top 0.4s ease-in-out, color 0s ease 0.4s;
     }
     &._left::before,
     &._right::before {
-      display: block;
-      position: absolute;
       top: 0;
-      left: 0;
-      width: 100%;
       content: attr(data-text1);
-      color: rgba(255, 0, 0, 0.2);
     }
-    &._first::before {
-      top: -8.7vw;
+    &._left::after,
+    &._right::after {
+      top: 100%;
+      content: attr(data-text2);
+    }
+    &._first::after {
+      height: 0;
+      left: 0;
+      bottom: 0;
+      content: attr(data-text2);
+      transition: height 0.4s ease-in-out, color 0s ease 0.4s;
+    }
+  }
+
+  &:hover {
+    color: transparent;
+    transition: color 0s ease-in-out 0s;
+    & ._left::before,
+    & ._right::before {
+      color: $s-text-color;
+      top: -100%;
+      transition: top 0.4s ease-in-out;
+    }
+    & ._left::after,
+    & ._right::after {
+      color: $s-text-color;
+      top: 0;
+      transition: top 0.4s ease-in-out;
+    }
+    & ._first::after {
+      color: $s-text-color;
+      height: 8.7vw;
+      transition: height 0.4s ease-in-out;
     }
   }
 }
