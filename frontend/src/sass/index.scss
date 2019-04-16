@@ -1,0 +1,86 @@
+@import "vars";
+
+html,
+body {
+	position: relative;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: $background-color;
+	overflow: hidden;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	min-width: 320px;
+	min-height: 320px;
+	margin: 0 auto;
+	font-family: $default-font;
+	color: #474747;
+}
+
+.wrap-container {
+	display: flex;
+	flex: 1 0 auto;
+	flex-direction: column;
+}
+
+.main {
+	position: relative;
+	height: 100%;
+}
+
+.footer {
+	flex: 0 0 auto;
+}
+
+.link {
+	display: block;
+	text-decoration: none;
+	outline: none;
+	color: $p-text-color;
+	&:hover,
+	&:active,
+	&:focus {
+
+	}
+}
+
+._ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+._p {
+	color: $p-text-color;
+}
+
+._s {
+	color: $s-text-color;
+}
+._hidden {
+	display: none !important;
+}
+._visible-sm {
+	display: none !important;
+}
+._visible-md {
+	display: none !important;
+}
+._visible-lg {
+	display: none !important;
+}
+._visible-xl {
+	display: none !important;
+}
+
+@import "media";
+@import "keffy";
+@import "layout/main";
