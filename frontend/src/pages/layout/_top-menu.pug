@@ -1,2 +1,22 @@
-nav.top-menu
-  .container
+nav.top-menu.col-10.offset-1
+    .top-menu__left
+        a.link.top-menu__logo-link(href="/")
+            img.top-menu__logo(src="svg/logo_p.svg")
+            img.top-menu__logo._s(src="svg/logo_s.svg")
+        .top-menu__tel-box._visible-sm
+            a.top-menu__link._tel(href="tel:+380989102888") +38 (093) 910 28 88
+            br
+            a.top-menu__link._tel(href="tel:+380989102888") +38 (093) 910 28 88
+        div._visible-lg
+            a.top-menu__link(href="#") рус
+    .top-menu__center._visible-lg
+        a.top-menu__link._current(href="#" data-numb="2") Актуальное
+    .top-menu__right._visible-lg
+        .top-menu__menu-box
+            a.top-menu__link(href="#") О&nbsp;нас
+            a.top-menu__link._list(href="#") Наши&nbsp;услуги
+            a.top-menu__link(href="#") Кейсы
+            a.top-menu__link(href="#") Клиенты
+            a.top-menu__link(href="#") Контакты
+        button.top-menu__button._sign(data-text="Записаться на консультацию")
+    button.top-menu__button._menu._hidden-lg

@@ -13,7 +13,7 @@ const Keffy = function(name, params = {}) {
     this.sPagination = this.slider.querySelector('.keffy__pagination');
     this.sBullet = {};
     this.sActive = active - 1;
-
+    this.touchesSlider = [0, 0];
 
     if (this.sPrev) this.sPrev.addEventListener('click',
         this.goToSlide.bind(this, -1)
@@ -32,9 +32,7 @@ const Keffy = function(name, params = {}) {
 
     if (this.sPagination) this.buildPagination();
 
-    this.sSlide[this.sActive].classList.add('_active');
-
-    this.touchesSlider = [0, 0];
+    this.goToSlide();
 };
 
 /*
@@ -55,7 +53,7 @@ Keffy.prototype.buildPagination = function() {
 };
 
 /*
-Перейти по кнопкам пагинации слайдера
+Перейти к слайду
 */
 
 Keffy.prototype.goToSlide = function(next=0) {
@@ -64,7 +62,7 @@ Keffy.prototype.goToSlide = function(next=0) {
 
     if (numb >= 0 && numb <= sLength) {
         let active = this.slider.querySelectorAll('._active');
-        active[0].classList.remove('_active');
+        if(active[0]) active[0].classList.remove('_active');
         this.sSlide[numb].classList.add('_active');
 
         if (this.sPagination) {
@@ -72,6 +70,18 @@ Keffy.prototype.goToSlide = function(next=0) {
             this.sBullet[numb].classList.add('_active');
         }
         if (next) this.sActive = numb;
+        let widthSlide = this.sWrapper.clientWidth - this.sSlide[numb].clientWidth;
+        if (widthSlide > 0) this.sSlide[numb].style = 'margin-right: -' + (widthSlide) + 'px;';
+
+        /*
+        * top-menu color
+        * */
+        let topMenu = document.querySelector('.top-menu');
+        if (numb == 0 && !topMenu.classList.contains('_s')) {
+            topMenu.classList.add('_s');
+        } else if (topMenu.classList.contains('_s')) {
+            topMenu.classList.remove('_s');
+        }
     }
 };
 
