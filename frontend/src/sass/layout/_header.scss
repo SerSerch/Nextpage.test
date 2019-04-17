@@ -2,6 +2,68 @@
 .header {
   background-color: $s-background-color;
   color: $s-text-color;
+  &__button {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    width: 260px;
+    height: 60px;
+    padding: 20px;
+    line-height: 20px;
+    background-color: $s-active-color;
+    font-size: 10px;
+    color: $s-text-color;
+    text-transform: uppercase;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    &::after {
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 20px;
+      height: 20px;
+      content: '';
+      /*background-image: url();*/
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      box-shadow: 0 0 4px #fff;
+    }
+  }
+  &__mail {
+    position: absolute;
+    bottom: 94px;
+    right: 15px;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: right;
+  }
+  &__chief {
+    text-transform: uppercase;
+    opacity: 0.2;
+  }
+  &__next {
+    min-height: 120px;
+    padding-top: 42px;
+    padding-left: 40px;
+    text-align: right;
+    font-size: 18px;
+    line-height: 20px;
+  }
+  &__next-icon {
+    display: block;
+    position: absolute;
+    top: 48px;
+    left: 15px;
+    width: 9px;
+    height: 25px;
+    background-image: url(../svg/arrow-donw.svg);
+    background-repeat: no-repeat;
+    background-size: 9px;
+  }
 }
 
 .caption {
@@ -11,9 +73,10 @@
   transform: rotate(-30deg) translate(1.5%, -1%);
   text-transform: uppercase;
   transition: color 0s ease-in-out 0.4s;
+  user-select: none;
   &-box {
+    position: relative;
     margin-top: 105px;
-    border: 1px solid #f00;
     padding-bottom: 17.6%;
   }
   &__text {
