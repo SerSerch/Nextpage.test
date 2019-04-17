@@ -37,15 +37,10 @@ body {
 }
 
 .link {
-	display: block;
+	display: inline-block;
 	text-decoration: none;
 	outline: none;
-	color: $p-text-color;
-	&:hover,
-	&:active,
-	&:focus {
-
-	}
+	color: inherit;
 }
 
 ._ellipsis {
