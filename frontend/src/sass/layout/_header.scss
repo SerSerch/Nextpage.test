@@ -1,0 +1,160 @@
+@import "../vars";
+.header {
+  background-color: $s-background-color;
+  color: $s-text-color;
+  &__button {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    width: 260px;
+    height: 60px;
+    padding: 20px;
+    line-height: 20px;
+    background-color: $s-active-color;
+    font-size: 10px;
+    color: $s-text-color;
+    text-transform: uppercase;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    &::after {
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 20px;
+      height: 20px;
+      content: '';
+      /*background-image: url();*/
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      box-shadow: 0 0 4px #fff;
+    }
+  }
+  &__mail {
+    position: absolute;
+    bottom: 94px;
+    right: 15px;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: right;
+  }
+  &__chief {
+    text-transform: uppercase;
+    opacity: 0.2;
+  }
+  &__next {
+    min-height: 120px;
+    padding-top: 42px;
+    padding-left: 40px;
+    text-align: right;
+    font-size: 18px;
+    line-height: 20px;
+  }
+  &__next-icon {
+    display: block;
+    position: absolute;
+    top: 48px;
+    left: 15px;
+    width: 9px;
+    height: 25px;
+    background-image: url(../svg/arrow-donw.svg);
+    background-repeat: no-repeat;
+    background-size: 9px;
+  }
+}
+
+.caption {
+  position: relative;
+  font-size: 0;
+  display: block;
+  transform: rotate(-30deg) translate(1.5%, -1%);
+  text-transform: uppercase;
+  transition: color 0s ease-in-out 0.4s;
+  user-select: none;
+  &-box {
+    position: relative;
+    margin-top: 105px;
+    padding-bottom: 17.6%;
+  }
+  &__text {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 8.7vw;
+    font-size: 9.2vw;
+    line-height: 9.2vw;
+    font-weight: 700;
+    letter-spacing: -0.9vw;
+    overflow: hidden;
+    &._left {
+      transform: skewX(30deg);
+    }
+    &._right {
+      transform: skewX(-30deg);
+    }
+    &._first {
+      position: absolute;
+      top: -8.7vw;
+      left: 0;
+      overflow: visible;
+      transform: skewX(30deg);
+    }
+    &._left::before,
+    &._right::before,
+    &._left::after,
+    &._right::after,
+    &._first::after {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 8.7vw;
+      color: transparent;
+      overflow: hidden;
+      transition: top 0.4s ease-in-out, color 0s ease 0.4s;
+    }
+    &._left::before,
+    &._right::before {
+      top: 0;
+      content: attr(data-text1);
+    }
+    &._left::after,
+    &._right::after {
+      top: 100%;
+      content: attr(data-text2);
+    }
+    &._first::after {
+      height: 0;
+      left: 0;
+      bottom: 0;
+      content: attr(data-text2);
+      transition: height 0.4s ease-in-out, color 0s ease 0.4s;
+    }
+  }
+
+  &:hover {
+    color: transparent;
+    transition: color 0s ease-in-out 0s;
+    & ._left::before,
+    & ._right::before {
+      color: $s-text-color;
+      top: -100%;
+      transition: top 0.4s ease-in-out;
+    }
+    & ._left::after,
+    & ._right::after {
+      color: $s-text-color;
+      top: 0;
+      transition: top 0.4s ease-in-out;
+    }
+    & ._first::after {
+      color: $s-text-color;
+      height: 8.7vw;
+      transition: height 0.4s ease-in-out;
+    }
+  }
+}
+

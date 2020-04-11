@@ -1,0 +1,59 @@
+/*
+  550 mobile
+*/
+
+@media (min-width: 576px) {
+  ._visible-sm {
+    display: block !important;
+  }
+  ._hidden-sm {
+    display: none !important;
+  }
+}
+
+/*
+  750 tablets
+*/
+
+@media (min-width: 768px) {
+  ._visible-md {
+    display: block !important;
+  }
+  ._hidden-md {
+    display: none !important;
+  }
+}
+
+/*
+  750 tablet landscape
+*/
+
+@media (min-width: 768px) and (orientation: landscape) {
+
+}
+
+/*
+  960 desktops
+*/
+
+@media (min-width: 992px) {
+  ._visible-lg {
+    display: block !important;
+  }
+  ._hidden-lg {
+    display: none !important;
+  }
+}
+
+/*
+  1170 full 2k
+*/
+
+@media (min-width: 1200px) {
+  ._visible-xl {
+    display: block !important;
+  }
+  ._hidden-xl {
+    display: none !important;
+  }
+}

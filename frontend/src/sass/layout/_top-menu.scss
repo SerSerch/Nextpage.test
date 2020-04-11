@@ -1,0 +1,168 @@
+@import "../vars";
+
+.top-menu {
+  display: flex;
+  position: fixed;
+  z-index: 100;
+  min-height: 105px;
+  padding-top: 41px;
+  &__left,
+  &__right {
+    position: relative;
+    display: flex;
+    width: 100%;
+  }
+  &__menu-box {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    transform: translateX(10px);
+    padding-right: 80px;
+  }
+  &__center {
+    flex-grow: 0;
+  }
+  &__logo {
+    display: block;
+    width: 100px;
+    height: 40px;
+    &._s {
+      display: none;
+    }
+  }
+  &__link {
+    font-size: 12px;
+    line-height: 20px;
+    display: inline-block;
+    padding: 0 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: inherit;
+    font-weight: bold;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $s-active-color;
+    }
+    &._current {
+      position: relative;
+      &::before {
+        display: block;
+        position: absolute;
+        width: 11px;
+        height: 14px;
+        bottom: -19px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        content: '';
+        background-image: url(../svg/ring_p.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+      &::after {
+        display: block;
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        bottom: -39px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        border-radius: 50%;
+        color: $s-text-color;
+        background-color: $s-active-color;
+        content: attr(data-numb);
+        line-height: 16px;
+        text-align: center;
+        font-size: 7px;
+      }
+    }
+    &._tel {
+      color: $s-active-color;
+    }
+    &._list {
+      padding-right: 21px;
+    }
+  }
+  &__tel-box {
+    width: 46%;
+    min-width: 171px;
+    text-align: right;
+    padding-right: 6%;
+    padding-left: 15px;
+  }
+  &__button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 60px;
+    height: 60px;
+    padding: 20px;
+    line-height: 20px;
+    background-color: $s-active-color;
+    font-size: 10px;
+    color: $s-text-color;
+    text-transform: uppercase;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    &._menu {
+      top: 41px;
+      right: 15px;
+      background-image: url(../svg/line-menu.svg);
+      background-repeat: no-repeat;
+      background-size: 30px;
+      background-position: center center;
+    }
+    &._sign {
+      &::before {
+        display: block;
+        position: absolute;
+        right: 100%;
+        top: 100%;
+        content: attr(data-text);
+        width: 0;
+        height: 60px;
+        padding: 20px 0;
+        background-color: $s-active-color;
+        overflow: hidden;
+        text-overflow: clip;
+        white-space: nowrap;
+        transition: width 0.4s ease-in-out, padding 0.1s ease-in-out 0.3s;
+        transform: rotate(-90deg) translateX(1px);
+        transform-origin: top right;
+      }
+      &:hover::before,
+      &:active::before,
+      &:focus::before {
+        width: 200px;
+        padding: 20px 0 20px 20px;
+        transition: width 0.4s ease-in-out, padding 0.1s ease-in-out;
+      }
+    }
+  }
+  &._s {
+    & .top-menu__logo {
+      display: none;
+      &._s {
+        display: block;
+      }
+    }
+    & ._current {
+      &::before {
+        background-image: url(../svg/ring_s.svg);
+      }
+    }
+    & .top-menu__menu-box {
+      padding-right: 0;
+    }
+    & .top-menu__button {
+      display: none;
+      &._menu {
+        display: block;
+      }
+    }
+  }
+}
